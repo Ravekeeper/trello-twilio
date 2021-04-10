@@ -4,7 +4,8 @@
   "description": "Send and receive SMS notifications via Trello",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test node_modules/.bin/mocha test"
+    "test": "NODE_ENV=test node_modules/.bin/mocha test",
+    "start": "node -r esm ."
   },
   "repository": {
     "type": "git",
