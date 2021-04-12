@@ -53,8 +53,8 @@ export const createCard = async (phoneNumber) => {
 export const attachWebHook = (cardId) => {
     const url = `${TRELLO_API}/webhooks?token=${trelloAuth}&key=${trelloKey}`;
 
-    return fetch(url, { 
-        method: 'post', 
+    return fetch(url, {
+        method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -74,7 +74,7 @@ export const attachWebHook = (cardId) => {
  * Add comment to Trello card
  */
 export const addComment = (cardId, text) => {
-    const url = `${TRELLO_API}/cards/${cardId}/actions/comments?text=Message from customer: \n\n ${text}&key=${trelloKey}&token=${trelloAuth}`;
+    const url = `${TRELLO_API}/cards/${cardId}/actions/comments?text=Incoming message: \n\n ${text}&key=${trelloKey}&token=${trelloAuth}`;
 
     return fetch(url, {
         method: 'post',

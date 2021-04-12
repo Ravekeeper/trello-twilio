@@ -12,7 +12,7 @@ export const sendTextMessage = (request) => {
 
     // When we put the customer's SMS on the card via API call, we don't want to accidentally
     // send that message back to the customer.
-    if (sms.startsWith('Message from customer:')) {
+    if (sms.startsWith('Incoming message:')) {
         return;
     }
 
