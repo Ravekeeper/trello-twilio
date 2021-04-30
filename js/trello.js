@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import emojiStrip from 'emoji-strip';
 
 const trelloKey = process.env.TRELLO_KEY;
 const trelloAuth = process.env.TRELLO_AUTH_TOKEN;
@@ -74,7 +75,8 @@ export const attachWebHook = (cardId) => {
  * Add comment to Trello card
  */
 export const addComment = (cardId, text) => {
-    const url = `${TRELLO_API}/cards/${cardId}/actions/comments?text=Incoming message: \n\n ${text}&key=${trelloKey}&token=${trelloAuth}`;
+    const noEmojiText = emojiStrip(text);
+    const url = `${TRELLO_API}/cards/${cardId}/actions/comments?text=Incoming message: \n\n ${noEmojiText}&key=${trelloKey}&token=${trelloAuth}`;
 
     return fetch(url, {
         method: 'post',
